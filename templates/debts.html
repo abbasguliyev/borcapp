@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+
+{% block context %}
+<div class="mt-4">
+    <div>
+        <a class="btn btn-primary">Yeni Borc</a>
+    </div>
+    <table class="table table-hover table-bordered mt-4">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Borc Alan</th>
+            <th scope="col">Məbləğ</th>
+            <th scope="col">Aldığı tarix</th>
+            <th scope="col">Ödəməli olduğu tarix</th>
+            <th scope="col">Ödədiyi tarix</th>
+            <th scope="col">Ödəmə statusu</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for loan in loans %}
+          <tr>
+            <th scope="row">{{loan.id}}</th>
+            <td>{{loan.borrower}}</td>
+            <td>{{loan.amount}}</td>
+            <td>{{loan.start_date}}</td>
+            <td>{{loan.end_date}}</td>
+            <td>{{loan.paid_date}}</td>
+            <td>{{loan.paid_status}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock context %}
